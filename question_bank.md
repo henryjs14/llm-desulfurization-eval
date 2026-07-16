@@ -26,40 +26,42 @@ Each question includes a scoring rubric (the specific points a correct answer mu
 Goal: establish a baseline. Can the model correctly name and explain the primary adsorption mechanism at play, including the correct oxidation state / electronic explanation, not just the correct material name?
 
 **Q1.** CuY zeolite is exposed to dibenzothiophene (DBT). What is the primary adsorption mechanism, and why does Cu specifically enable it?
-- **Rubric:** Mentions π-complexation; identifies Cu⁺ as the active oxidation state; mentions back-donation into the aromatic/thiophene ring.
-- **Source:** Dissertation, Ch. 5 (DFT adsorption mechanism study)
+- **Rubric:** Mentions π-complexation; identifies Cu⁺ (d¹⁰ configuration, [Ar]3d¹⁰) as the active oxidation state; explains that occupied 3d orbitals enable back-donation into the adsorbate's π* orbital, while the available 4s orbital accepts σ-donation from the aromatic ring.
+- **Source:** Dissertation, Ch. 5 (DFT adsorption mechanism study); Sokol, H. J.; Lee, K. X.; Valla, J. A. *Comput. Mater. Sci.* 2024, 235, 112813 (natural electron configuration data)
 
-**Q2.** NaY zeolite shows much weaker sulfur adsorption than CuY for the same feed. Explain the mechanistic difference.
-- **Rubric:** Identifies NaY as relying on weaker electrostatic / van der Waals interactions vs. CuY's specific π-complexation via Cu⁺.
-- **Source:** Dissertation, Ch. 5, Table 11 (NaY ΔHads ~ -72 to -92 kJ/mol vs. CuY ~ -141 to -149 kJ/mol)
+**Q2.** NaY zeolite shows much weaker sulfur adsorption than CuY for the same feed. Explain the mechanistic difference — specifically, could Na⁺ support a direct sulfur-metal (S-M) chemisorption interaction similar to what's seen with Ce, or is a different explanation needed?
+- **Rubric:** Identifies NaY as relying on weaker electrostatic/van der Waals interactions rather than either π-complexation or S-M chemisorption. Should note that both π-complexation and S-M interaction modes are specifically tied to transition metal/lanthanide cations with accessible d-orbitals (as with Cu and Ce); Na⁺, an alkali metal with no accessible d-orbitals, lacks the orbital character needed for either specific coordination mode.
+- **Source:** Dissertation, Ch. 5, Table 11 (NaY ΔHads ~ -72 to -92 kJ/mol vs. CuY ~ -141 to -149 kJ/mol); Sokol, H. J.; Lee, K. X.; Valla, J. A. *Comput. Mater. Sci.* 2024, 235, 112813 (π-complexation/S-M mode discussion)
 
 **Q3.** Fresh (as-prepared) CuY zeolite begins with Cu in the +2 oxidation state. Describe what happens to the Cu oxidation state during the reduction process used to activate the sorbent, and why this matters for sulfur adsorption.
-- **Rubric:** Identifies Cu²⁺ → Cu⁺ transition during reduction; notes Cu⁺ is the active π-complexation site, so incomplete reduction limits adsorption performance.
-- **Source:** Dissertation, Ch. 3, §4.3.6 (Cu K-edge XANES reduction data)
+- **Rubric:** Identifies Cu²⁺ → Cu⁺ transition during reduction; notes Cu⁺ is the active π-complexation site, so incomplete reduction limits adsorption performance. Strong answers note that Cu²⁺'s d⁹ configuration lacks the fully occupied d-shell needed for effective back-donation, explaining specifically why reduction to Cu⁺ (not just "some reduced state") is required.
+- **Source:** Dissertation, Ch. 3, §4.3.6 (Cu K-edge XANES reduction data); Sokol, H. J.; Lee, K. X.; Valla, J. A. *Comput. Mater. Sci.* 2024, 235, 112813 (Cu⁺ d¹⁰ requirement for π-complexation)
 
-**Q4.** Why is the Ce³⁺ oxidation state relevant to the adsorption behavior of CeY zeolite, and how does this differ mechanistically from Cu-based adsorption?
-- **Rubric:** Distinguishes Ce's behavior from Cu's π-complexation pathway; notes Ce migrates from Ce⁴⁺ toward Ce³⁺ during reduction.
-- **Source:** Dissertation, Ch. 3, §4.3.5–4.3.6
+**Q4.** During the reduction treatment used to activate CuCeY, Cu²⁺ is reduced to Cu⁺. Does Ce in the same material undergo a similarly complete reduction to a single well-defined oxidation state? Describe what actually happens to Ce during this process.
+- **Rubric:** Should NOT assume Ce reduces cleanly and completely the way Cu does. Correct answer notes Ce is unstable in a +2 state, and that experimental work (XPS) has found Ce present in a mixture of +3 and +4 states after ion-exchange and calcination, with in-situ XAS showing only partial reduction of Ce⁴⁺ toward Ce³⁺ under H₂ — i.e., Ce's reduction behavior is more partial/mixed than Cu's clean +2→+1 transition, and a model that assumes complete, uniform Ce³⁺ reduction by analogy with Cu should be marked down.
+- **Source:** Sokol, H. J.; Lee, K. X.; Valla, J. A. *Comput. Mater. Sci.* 2024, 235, 112813 (Ce oxidation state discussion, XPS/in-situ XAS references)
 
-**Q5.** CeY has been shown to preferentially adsorb benzothiophene (BT) through η⁶ coordination, with the aromatic ring centered over the Ce³⁺ cation, rather than the η² π-complexation mode seen with Cu⁺. Explain the electronic difference between these two coordination modes.
+**Q5.** *[PENDING REVIEW — Henry to verify the η⁶/η² coordination framing against the source figures before finalizing]*
+CeY has been shown to preferentially adsorb benzothiophene (BT) through η⁶ coordination, with the aromatic ring centered over the Ce³⁺ cation, rather than the η² π-complexation mode seen with Cu⁺. Explain the electronic difference between these two coordination modes.
 - **Rubric:** Distinguishes η² Cu⁺ π-complexation (two π-bonded carbons, back-donation from filled Cu d-orbitals into the aromatic π* system) from η⁶ Ce³⁺ coordination (whole-ring interaction, more consistent with σ-donation/electrostatic-dominated bonding from Ce's f/d character).
 - **Source:** Dissertation, Ch. 5, §5.3 (adsorption geometries, Figure 30–32)
 
-**Q6.** What role does the negative framework charge of the Y zeolite (arising from Al substitution for Si in the aluminosilicate lattice) play in enabling ion exchange with Cu²⁺, Ce³⁺, or Na⁺ cations in the first place?
-- **Rubric:** Explains that framework Al introduces a net negative charge requiring charge-balancing extra-framework cations, which is the structural basis that allows metal cations to be exchanged into the zeolite and subsequently act as adsorption sites.
+**Q6.** What is the role of framework Al in zeolite ion-exchange?
+- **Rubric:** Explains that Al substitution for Si in the aluminosilicate framework introduces a net negative charge, requiring charge-balancing extra-framework cations — this is the structural basis that allows metal cations (Na⁺, Cu²⁺, Ce³⁺, etc.) to be exchanged into the zeolite and subsequently act as adsorption sites.
 - **Source:** Dissertation, Ch. 1–2 (zeolite structure background)
 
 **Q7.** Distinguish physisorption from chemisorption as they apply to sulfur removal, using microporous activated carbon and CuY zeolite as contrasting examples.
-- **Rubric:** Correctly characterizes AC's dominant mechanism as physical adsorption (van der Waals/pore confinement, non-specific) vs. CuY's chemisorption (specific orbital interaction via π-complexation with Cu⁺); recognizes real materials can show both to varying degrees (e.g., FWAC's inorganic impurities contributing chemisorption).
+- **Rubric:** Correctly characterizes AC's dominant mechanism as physical adsorption (van der Waals/pore confinement, non-specific) vs. CuY's chemisorption (specific orbital interaction via π-complexation with Cu⁺). Full credit should also be given to answers that note real materials can show both modes simultaneously (e.g., FWAC combines micropore physisorption with inorganic-impurity chemisorption) — a model that complicates the clean binary this way is demonstrating deeper understanding, not getting the question wrong.
 - **Source:** Dissertation, Ch. 6 (FWAC discussion); Ch. 5 (CuY mechanism)
 
-**Q8.** Introducing mesoporosity into Y zeolite (producing "SAY," surfactant-templated mesoporous Y) significantly increases sulfur adsorption capacity for bulky molecules like DBT and 4,6-DMDBT compared to purely microporous parent Y. What mechanism explains this improvement, and is it a chemical or physical effect?
+**Q8.** Introducing mesoporosity into Y zeolite (producing "SAY," Surfactant-Assisted Y — named for its synthesis method) significantly increases sulfur adsorption capacity for bulky molecules like DBT and 4,6-DMDBT compared to purely microporous parent Y. What mechanism explains this improvement, and is it a chemical or physical effect?
 - **Rubric:** Identifies this as primarily a diffusion/mass-transport effect — mesopores reduce diffusion limitations, allowing bulky molecules better access to internal active sites — rather than a change in the intrinsic chemical adsorption mechanism itself.
 - **Source:** Lee, K. X. et al. *Ind. Eng. Chem. Res.* 2019, 58, 18301–18312 (SAY mesoporous Y study)
 
-**Q9.** After sulfur adsorption, CuY and CuCeY sorbents can be regenerated (largely restoring sulfur capacity) using a high-temperature treatment combined with a solvent of similar polarity to the adsorbate. What does the effectiveness of this regeneration method suggest about the nature of the Cu–sulfur bonding interaction?
-- **Rubric:** Notes that successful regeneration under moderate thermal/solvent treatment (rather than requiring destructive/irreversible conditions) is consistent with a strong-but-reversible chemisorption interaction (π-complexation), not a permanent covalent bond or purely physical trapping.
-- **Source:** Dissertation, Ch. 4, §4.1 (regeneration discussion)
+**Q9.** *[PENDING REVIEW — not supported by Henry's own data; citation and rubric logic need rework before finalizing]*
+After sulfur adsorption, CuY and CuCeY sorbents can be regenerated (largely restoring sulfur capacity) using a high-temperature treatment combined with a solvent of similar polarity to the adsorbate. What does the effectiveness of this regeneration method suggest about the nature of the Cu–sulfur bonding interaction?
+- **Rubric:** [Needs rework — the "strong enthalpy implies reversibility" logic is flawed; binding strength and reversibility are separate properties. Needs a different, defensible framing before use.]
+- **Source:** Findings cited in the dissertation introduction, attributed to external literature — not Henry's own generated data. Needs correct attribution before use.
 
 **Q10.** Explain what "back-donation" means in the context of Cu⁺–thiophene π-complexation, and why the +1 (not +2 or 0) oxidation state of Cu is specifically favorable for this interaction.
 - **Rubric:** Describes back-donation as electron density flowing from filled Cu d-orbitals into the empty π* antibonding orbitals of the aromatic/thiophene ring; explains Cu⁺'s d10 configuration provides favorable orbital energy/occupancy for this donation, which Cu²⁺ (fewer d-electrons available) and Cu⁰ (different bonding environment) do not replicate as effectively.
