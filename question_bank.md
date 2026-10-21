@@ -17,14 +17,14 @@ Each question includes a scoring rubric (the specific points a correct answer mu
 
 ## Question Counts by Tier
 
-| Tier | Focus | Count in this draft |
-|---|---|---|
-| Tier 1 | Mechanism identification | 12 |
-| Tier 2 | Comparative reasoning | 12 |
-| Tier 3 | Counterfactual / edge cases | 9 (Q25 removed, needs replacement) |
-| Tier 4 | Diagnostic / anomaly explanation | 4 solid (Q33–35, 38) + 2 flagged for rework (Q26, Q37) — needs substantial redrafting, per your note that you'll work on this tier directly |
+| Tier | Focus | Current | Target | Open slots |
+|---|---|---|---|---|
+| Tier 1 | Mechanism identification | 10 | 10 | 0 (Q5 still pending verification) |
+| Tier 2 | Comparative reasoning | 10 | 10 | 0 (Q18, Q22 still pending review) |
+| Tier 3 | Counterfactual / edge cases | 8 | 10 | 2 |
+| Tier 4 | Diagnostic / anomaly explanation | 3 | 10 | 7 |
 
-**Total: 42 questions.** Trim, merge, or cut any that feel redundant or insufficiently rigorous once you review them — a smaller set of airtight questions beats a larger set with weak spots.
+**Total: 31 questions, target 40 (10 per tier).** Original question numbers are kept so earlier review notes still line up; renumber once the bank is final. A smaller set of airtight questions beats a larger set with weak spots.
 
 ---
 
@@ -65,10 +65,7 @@ CeY has been shown to preferentially adsorb benzothiophene (BT) through η⁶ co
 - **Rubric:** Identifies this as primarily a diffusion/mass-transport effect — mesopores reduce diffusion limitations, allowing bulky molecules better access to internal active sites — rather than a change in the intrinsic chemical adsorption mechanism itself.
 - **Source:** Lee, K. X. et al. *Ind. Eng. Chem. Res.* 2019, 58, 18301–18312 (SAY mesoporous Y study)
 
-**Q9.** *[PENDING REVIEW — not supported by Henry's own data; citation and rubric logic need rework before finalizing]*
-After sulfur adsorption, CuY and CuCeY sorbents can be regenerated (largely restoring sulfur capacity) using a high-temperature treatment combined with a solvent of similar polarity to the adsorbate. What does the effectiveness of this regeneration method suggest about the nature of the Cu–sulfur bonding interaction?
-- **Rubric:** [Needs rework — the "strong enthalpy implies reversibility" logic is flawed; binding strength and reversibility are separate properties. Needs a different, defensible framing before use.]
-- **Source:** Findings cited in the dissertation introduction, attributed to external literature — not Henry's own generated data. Needs correct attribution before use.
+*[Q9 REMOVED: rubric was never written and the regeneration findings come from external literature, not Henry's own data.]*
 
 **Q10.** Explain what "back-donation" means in the context of Cu⁺–thiophene π-complexation, and why the +1 (not +2 or 0) oxidation state of Cu is specifically favorable for this interaction.
 - **Rubric:** Describes back-donation as electron density flowing from filled Cu d-orbitals into the empty π* antibonding orbitals of the aromatic/thiophene ring; explains Cu⁺'s d10 configuration provides favorable orbital energy/occupancy for this donation, which Cu²⁺ (fewer d-electrons available) and Cu⁰ (different bonding environment) do not replicate as effectively.
@@ -78,9 +75,7 @@ After sulfur adsorption, CuY and CuCeY sorbents can be regenerated (largely rest
 - **Rubric:** Recognizes this as evidence of direct electronic coupling/synergy between the two metal centers, not just two independent active sites coexisting in the same material — i.e., the metals influence each other's electronic structure.
 - **Source:** Dissertation, Ch. 5, §5.4, Table 9 (Cu-Ce bonding NBOs)
 
-**Q12.** Both activated carbon (AC) and CuY zeolite can adsorb dibenzothiophene, but they rely on fundamentally different molecular-level mechanisms. Briefly contrast the two.
-- **Rubric:** CuY: chemisorption via Cu⁺ π-complexation with the thiophene ring. AC: physisorption into size-matched micropores, without a dedicated metal-cation coordination site (though some activated carbons can show supplementary chemisorption at trace inorganic impurity sites, depending on feedstock).
-- **Source:** Dissertation, Ch. 5 (CuY); Ch. 6 (activated carbon discussion)
+*[Q12 REMOVED: redundant with Q7, same activated carbon vs. CuY mechanism contrast.]*
 
 ---
 
@@ -147,10 +142,7 @@ Goal: catch superficial pattern-matching. These questions test whether the model
 
 *[Q25 REMOVED — the original version leaked Q24's answer by structure, and overstated Ce loading behavior beyond what was actually tested (Ce loading increased capacity up to the highest tested level, but a decline at higher untested loadings is expected chemically, not something the data disproves). Needs a genuinely independent replacement if you want a Tier 3 question in this slot — happy to draft one on a different topic if useful.]*
 
-**Q26.** *[FLAGGED FOR REWORK — this is really just asking "what properties determine adsorption capacity beyond surface area," and doesn't need specific materials/numbers attached. Consider generalizing to a plain conceptual question, or removing if redundant with Q34/Q35 once those are reworked.]*
-A food-waste-derived activated carbon (FWAC) and a commercial activated carbon (CAC) sample were found to have comparable total BET surface areas. Given only this information, would you be able to confidently predict which sample has the higher sulfur adsorption capacity? What specific additional properties would you need to know?
-- **Rubric:** Should recognize that total surface area alone is insufficient to predict relative capacity. A strong answer identifies pore size distribution/micropore volume and trace inorganic composition as the properties worth checking.
-- **Source:** Dissertation, Ch. 6, §6.4; *ACS Omega* 2025, 10, 42725–42734
+*[Q26 REMOVED: redundant with Q34 (Tier 4), same FWAC vs. CAC equal-surface-area setup.]*
 
 **Q27.** Would you expect naphthalene (a competing aromatic present in real fuels) to adsorb onto activated carbon via the same π–π stacking mechanism proposed for sulfur compounds like DBT? What problem does this raise for AC-based desulfurization selectivity?
 - **Rubric:** Recognizes that if π–π stacking with the graphite face were the dominant mechanism, naphthalene would compete for the same sites, reducing sulfur selectivity — correctly identifies this as a genuine, experimentally demonstrated limitation (aromatics have been shown to compete with thiophenic compounds for AC adsorption sites), not just a theoretical concern.
@@ -176,6 +168,8 @@ A food-waste-derived activated carbon (FWAC) and a commercial activated carbon (
 - **Rubric:** Should flag competitive adsorption from aromatic compounds (benzene, naphthalene, methylnaphthalene) naturally present in real fuels as a concrete, evidence-backed reason for expecting reduced real-world capacity relative to idealized model-fuel testing.
 - **Source:** Dissertation, Ch. 4; Lee, K. X.; Tsilomelekis, G.; Valla, J. A. *Appl. Catal. B Environ.* 2018, 234, 130–142 (aromatics competition studies)
 
+*[OPEN SLOTS: 2 more Tier 3 questions needed to reach 10.]*
+
 ---
 
 ## Tier 4 — Diagnostic / Anomaly Explanation
@@ -196,17 +190,17 @@ Goal: the hardest tier. Present a real, validated experimental finding that runs
 
 *[Q36 REMOVED — redundant with Q18 (Tier 2) and Q23 (Tier 3), which already test the Brønsted-acid/metal-complexation size-dependence override from different angles.]*
 
-**Q37.** *[FLAGGED — too obvious as written; in-situ vs. ex-situ characterization for redox-active species is fairly generic materials science knowledge, not a strong test of domain-specific reasoning. Consider removing or reworking to require a more specific, less guessable insight.]*
-Explain why in-situ XAFS measurements were necessary to determine Cu and Ce oxidation states in CuY/CeY zeolites under operating (reduced) conditions, rather than relying on ex-situ characterization of the as-prepared material alone.
+*[Q37 REMOVED: in-situ vs. ex-situ characterization is generic materials science, not a strong domain reasoning test.]*
 
-**Q38.** *[FLAGGED for rework per your review — needs more work before finalizing.]*
-In situ XRD of CuY, CeY, and CuCeY showed no significant peaks attributable to crystalline Cu or Ce metal/oxide phases, even though XANES confirmed clear oxidation-state changes were occurring in these same materials. How can both of these observations be true simultaneously?
+*[Q38 REMOVED: redundant with Q29 (Tier 3), same XRD-silent vs. XANES-visible observation.]*
 
 *[Q39 REMOVED — redundant with Q19 (Tier 2), same setup and numbers. Note: site I/I'/II/II' terminology is standard, decades-old zeolite crystallography vocabulary, not dissertation-specific — no issue with using it if this slot is refilled with a genuinely different question later.]*
 
 *[Q40 REMOVED — redundant with Q17 (Tier 2) and Q28 (Tier 3), same selectivity-vs-capacity theme.]*
 
-*(Optional additions to reach the top of the 8–12 target range: consider a question built around the biodiesel desulfurization chapter, or the regeneration/reusability data, if you want to broaden beyond the CuY/CeY/CuCeY and FWAC systems.)*
+*[OPEN SLOTS: 7 more Tier 4 questions needed to reach 10. Current three (Q33–35) all test activated carbon pore structure, so new questions should cover other systems, e.g. zeolite metal chemistry, Ce redox behavior, or competitive adsorption.]*
+
+*(Ideas for new questions: consider a question built around the biodiesel desulfurization chapter, or the regeneration/reusability data, if you want to broaden beyond the CuY/CeY/CuCeY and FWAC systems.)*
 
 ---
 
