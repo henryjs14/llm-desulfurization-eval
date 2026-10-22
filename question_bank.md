@@ -214,10 +214,17 @@ Interpret these data.
 - **Rubric:** Early breakthrough is not caused by a subset of non-adsorbing compounds; in that case, the first effluent would contain only those compounds. Because all compounds appear at reduced concentrations, all are adsorbed, but not rapidly enough to be fully retained within the available contact time. This indicates mass transfer (diffusion) limitations. Flow channeling, in which part of the feed bypasses the bed, would produce the same signature and should also receive credit. The lower fixed-bed capacity reflects incomplete bed utilization due to short contact time, slow access to smaller or less accessible pores, and possibly flow channeling, compared with the long contact time and thorough mixing of batch experiments. Strong answers note that the higher viscosity of biodiesel slows diffusion.
 - **Source:** [7] (Ch. 7, Figs. 54–55)
 
-**Q25.** Commercial activated carbon used for biodiesel desulfurization was thermally regenerated under argon. Heating at 100 or 200 °C removed no sulfur. Regeneration at 400 °C gave the following results: total pore volume decreased by approximately 25% after the first adsorption–regeneration cycle and did not decrease further in subsequent cycles; residual sulfur in the carbon increased from 40 ppmw (fresh) to 123 ppmw after one cycle and 157 ppmw after two; and the carbon retained 83% of its original sulfur capacity in the third cycle. Explain how sulfur accumulation and pore volume loss can occur while most of the capacity is retained.
+**Q25.** Breakthrough points were measured for DBT and 4,6-DMDBT in *n*-octane on a parent microporous Y zeolite and on a mesoporous Y zeolite prepared from it. Neither zeolite contains exchanged metals. Feed concentrations differed between the two sulfur compounds, so values should be compared only within each compound.
 
-- **Rubric:** A fraction of the adsorbed sulfur is either bound too strongly or present in compounds of too low volatility to be removed by heating under an inert atmosphere at 400 °C, and therefore accumulates. The decreasing rate of accumulation suggests a limited population of strong sites or traps that become saturated. The first-cycle loss of pore volume suggests partial pore blocking by residues, or a structural change that then stabilizes. Because most of the capacity arises from the large remaining pore surface, most of it is retained. Strong answers note that the absence of sulfur removal at 100–200 °C shows that the adsorbed compounds are not simply volatile and weakly held, and that heating under an inert atmosphere cannot combust heavy organosulfur compounds. An oxidizing treatment would remove more sulfur but would also consume carbon.
-- **Source:** [7] (Ch. 7, Table 23, Fig. 57)
+| Breakthrough point (mL/g) | Parent Y | Mesoporous Y |
+|---|---|---|
+| DBT | 52 | 93 |
+| 4,6-DMDBT | 10 | 153 |
+
+Explain why introducing mesopores affects the two compounds so differently.
+
+- **Rubric:** 4,6-DMDBT is bulkier than DBT because of its methyl groups. In the purely microporous parent Y, it is almost entirely excluded from internal sites and breaks through early, whereas DBT, although also diffusion-limited, reaches a larger fraction of the sites. Mesopores remove most of this restriction, so the gain is far larger for the compound that was most restricted. Once access is provided, 4,6-DMDBT adsorbs at least as strongly as DBT (larger aromatic system and more contact with the framework), so its breakthrough point rises sharply. Strong answers note that the methyl groups that hinder 4,6-DMDBT in hydrodesulfurization, by blocking access to the S atom, do not prevent adsorption once the molecule can reach the sites. Reference values (DFT, HY): ΔH<sub>ads</sub> is −96 kJ/mol for DBT and −103 kJ/mol for 4,6-DMDBT. Answers attributing the difference to a change in adsorption mechanism are marked down.
+- **Source:** [5] (Table 4); [1] (Table 4)
 
 ---
 
