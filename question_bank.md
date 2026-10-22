@@ -223,8 +223,8 @@ Interpret these data.
 
 Explain why introducing mesopores affects the two compounds so differently.
 
-- **Rubric:** 4,6-DMDBT is bulkier than DBT because of its methyl groups. In the purely microporous parent Y, it is almost entirely excluded from internal sites and breaks through early, whereas DBT, although also diffusion-limited, reaches a larger fraction of the sites. Mesopores remove most of this restriction, so the gain is far larger for the compound that was most restricted. Once access is provided, 4,6-DMDBT adsorbs at least as strongly as DBT (larger aromatic system and more contact with the framework), so its breakthrough point rises sharply. Strong answers note that the methyl groups that hinder 4,6-DMDBT in hydrodesulfurization, by blocking access to the S atom, do not prevent adsorption once the molecule can reach the sites. Reference values (DFT, HY): ΔH<sub>ads</sub> is −96 kJ/mol for DBT and −103 kJ/mol for 4,6-DMDBT. Answers attributing the difference to a change in adsorption mechanism are marked down.
-- **Source:** [5] (Table 4); [1] (Table 4)
+- **Rubric:** 4,6-DMDBT is bulkier than DBT because of its methyl groups. In the purely microporous parent Y, it is almost entirely excluded from internal sites and breaks through early, whereas DBT, although also diffusion-limited, reaches a larger fraction of the sites. Mesopores remove most of this restriction, so the gain is far larger for the compound that was most restricted. The large gain shows that the low breakthrough point of 4,6-DMDBT on the parent Y reflected restricted access rather than weak binding. Strong answers note that the methyl groups that hinder 4,6-DMDBT in hydrodesulfurization, by blocking access to the S atom, do not prevent adsorption once the molecule can reach the sites. Answers attributing the difference to a change in adsorption mechanism are marked down.
+- **Source:** [5] (Table 4)
 
 ---
 
