@@ -14,6 +14,16 @@ Questions are organized into four tiers of increasing difficulty. Each question 
 
 Sources identify where the data originate and were used to verify the rubrics.
 
+## Scoring
+
+Each answer is graded against its rubric as Full, Partial, or Incorrect.
+
+- **Full:** addresses every required rubric point and commits to the main explanation or conclusion.
+- **Partial:** correct in direction but missing a required point, containing a factual error in supporting detail, or listing the correct explanation among several possibilities without identifying it as the most likely.
+- **Incorrect:** reaches the wrong conclusion. For Tier 3, this includes adopting the plausible but incorrect conclusion the question invites, even if hedged.
+
+Points introduced with "Strong answers" in a rubric are not required for full credit; they distinguish stronger answers among those that already meet the required points.
+
 ## Abbreviations
 
 - **TP, BT, DBT, 4,6-DMDBT**: thiophene, benzothiophene, dibenzothiophene, 4,6-dimethyldibenzothiophene.
