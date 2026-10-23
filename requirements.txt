@@ -1,0 +1,4 @@
+openai>=3.37
+anthropic>=2.1
+google-genai>=2.33
+python-dotenv>=1.0
