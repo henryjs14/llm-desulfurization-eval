@@ -19,7 +19,7 @@ from datetime import datetime, timezone
 from dotenv import load_dotenv
 
 from clients import ask
-from config import MODELS, QUESTION_BANK, RESULTS_DIR
+from config import ANSWER_INSTRUCTION, MODELS, QUESTION_BANK, RESULTS_DIR
 from questions import load_questions
 
 
@@ -42,13 +42,15 @@ def main():
             parser.error(f"unknown model label(s): {', '.join(sorted(unknown))}")
         models = [m for m in MODELS if m[0] in args.models]
     questions = load_questions(QUESTION_BANK)
+    for q in questions:
+        q["sent_prompt"] = f"{q['prompt']}\n\n{ANSWER_INSTRUCTION}".strip()
     if args.questions:
         wanted = {q.upper() for q in args.questions}
         questions = [q for q in questions if q["id"] in wanted]
 
     if args.dry_run:
         for q in questions:
-            print(f"--- {q['id']} (Tier {q['tier']}) ---\n{q['prompt']}\n")
+            print(f"--- {q['id']} (Tier {q['tier']}) ---\n{q['sent_prompt']}\n")
         print(f"{len(questions)} questions x {len(models)} models "
               f"= {len(questions) * len(models)} API calls")
         return
@@ -73,7 +75,7 @@ def main():
                     continue
                 print(f"  {q['id']}: asking...")
                 try:
-                    answer = ask(provider, model, q["prompt"])
+                    answer = ask(provider, model, q["sent_prompt"])
                 except Exception as error:
                     print(f"  {q['id']}: FAILED ({error})")
                     continue
@@ -84,6 +86,7 @@ def main():
                     "provider": provider,
                     "model_requested": model,
                     "timestamp": datetime.now(timezone.utc).isoformat(),
+                    "prompt": q["sent_prompt"],
                     **answer,
                 }
                 out.write(json.dumps(record, ensure_ascii=False) + "\n")

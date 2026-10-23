@@ -20,10 +20,15 @@ MODELS = [
 # against expert grading of a sample before results are reported.
 GRADER = ("anthropic", "claude-opus-5-5")
 
+# Instruction added to the end of every question, identical for all models.
+# It limits the visible answer so that verbose models are not cut off, and
+# encourages a committed answer rather than a list of possibilities.
+ANSWER_INSTRUCTION = "Answer in 400 words or fewer."
+
 # Upper limit on the length of each model response, in tokens. For reasoning
-# models this includes internal reasoning; answers that hit the limit are
-# flagged as truncated in the results.
-MAX_OUTPUT_TOKENS = 4000
+# models this includes internal reasoning, which the instruction above does not
+# control; answers that hit the limit are flagged as truncated in the results.
+MAX_OUTPUT_TOKENS = 8000
 
 # Number of attempts per API call before giving up (covers rate limits and
 # temporary server errors).
