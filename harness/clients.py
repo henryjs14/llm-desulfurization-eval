@@ -19,6 +19,7 @@ def _ask_openai(model, prompt):
     return {
         "text": response.output_text,
         "model_version": response.model,
+        "truncated": response.status == "incomplete",
         "input_tokens": response.usage.input_tokens,
         "output_tokens": response.usage.output_tokens,
     }
@@ -36,6 +37,7 @@ def _ask_anthropic(model, prompt):
     return {
         "text": text,
         "model_version": response.model,
+        "truncated": response.stop_reason == "max_tokens",
         "input_tokens": response.usage.input_tokens,
         "output_tokens": response.usage.output_tokens,
     }
@@ -45,15 +47,20 @@ def _ask_google(model, prompt):
     from google import genai
     from google.genai import types
 
-    response = genai.Client().models.generate_content(
+    # Keep the client in a variable: if it is discarded, the library closes the
+    # connection before the request is sent.
+    client = genai.Client()
+    response = client.models.generate_content(
         model=model,
         contents=prompt,
         config=types.GenerateContentConfig(max_output_tokens=MAX_OUTPUT_TOKENS),
     )
     usage = response.usage_metadata
+    finish = response.candidates[0].finish_reason if response.candidates else None
     return {
         "text": response.text or "",
         "model_version": response.model_version or model,
+        "truncated": finish == types.FinishReason.MAX_TOKENS,
         "input_tokens": usage.prompt_token_count if usage else None,
         "output_tokens": usage.candidates_token_count if usage else None,
     }
@@ -67,7 +74,7 @@ PROVIDERS = {
 
 
 def ask(provider, model, prompt):
-    """Send one prompt and return a dict with text, model_version, and token counts.
+    """Send one prompt and return a dict with text, model_version, truncated, and token counts.
 
     Each call is independent: no conversation history and no web search, so earlier
     questions cannot influence later ones. Failed calls are retried with increasing

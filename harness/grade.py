@@ -69,14 +69,14 @@ def read_jsonl(path):
 
 def write_summary(grades, path):
     """Write grade counts by model and tier, plus a per-question table."""
-    providers = sorted({g["provider"] for g in grades})
+    providers = sorted({g["label"] for g in grades})
     tiers = sorted({g["tier"] for g in grades})
     counts = defaultdict(Counter)
     by_question = defaultdict(dict)
     for g in grades:
-        counts[(g["provider"], g["tier"])][g["grade"]] += 1
-        counts[(g["provider"], "Total")][g["grade"]] += 1
-        by_question[g["question_id"]][g["provider"]] = g["grade"]
+        counts[(g["label"], g["tier"])][g["grade"]] += 1
+        counts[(g["label"], "Total")][g["grade"]] += 1
+        by_question[g["question_id"]][g["label"]] = g["grade"]
 
     lines = ["# Results summary", "",
              f"Grader: {GRADER[1]}. Counts are Full / Partial / Incorrect.", "",
@@ -112,18 +112,18 @@ def main():
     responses = read_jsonl(os.path.join(args.run_dir, "responses.jsonl"))
     grades_path = os.path.join(args.run_dir, "grades.jsonl")
     grades = read_jsonl(grades_path)
-    done = {(g["provider"], g["question_id"]) for g in grades}
+    done = {(g["label"], g["question_id"]) for g in grades}
 
     grader_provider, grader_model = GRADER
     with open(grades_path, "a", encoding="utf-8") as out:
         for r in responses:
-            key = (r["provider"], r["question_id"])
+            key = (r["label"], r["question_id"])
             if key in done:
                 continue
             q = questions[r["question_id"]]
             prompt = GRADER_PROMPT.format(scoring=scoring, question=q["prompt"],
                                           rubric=q["rubric"], answer=r["text"])
-            print(f"Grading {r['provider']} {r['question_id']}...")
+            print(f"Grading {r['label']} {r['question_id']}...")
             try:
                 reply = ask(grader_provider, grader_model, prompt)
             except Exception as error:
@@ -131,7 +131,8 @@ def main():
                 continue
             grade, justification = parse_grade(reply["text"])
             record = {"question_id": r["question_id"], "tier": r["tier"],
-                      "provider": r["provider"], "model_version": r["model_version"],
+                      "label": r["label"], "provider": r["provider"],
+                      "model_version": r["model_version"], "truncated": r.get("truncated", False),
                       "grade": grade, "justification": justification,
                       "grader": reply["model_version"]}
             out.write(json.dumps(record, ensure_ascii=False) + "\n")
@@ -140,6 +141,9 @@ def main():
 
     write_summary(grades, os.path.join(args.run_dir, "summary.md"))
     print(f"\nWrote {grades_path} and summary.md")
+    truncated = [g for g in grades if g.get("truncated")]
+    if truncated:
+        print(f"Warning: {len(truncated)} answers were cut off at the token limit.")
     unparsed = [g for g in grades if g["grade"] == "Unparsed"]
     if unparsed:
         print(f"Warning: {len(unparsed)} grades could not be parsed; check grades.jsonl.")

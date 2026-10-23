@@ -27,7 +27,8 @@ def main():
     if os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY"):
         from google import genai
         print("Google:")
-        for m in genai.Client().models.list():
+        client = genai.Client()  # keep a reference so the connection stays open
+        for m in client.models.list():
             if "generateContent" in (m.supported_actions or []):
                 print("  ", m.name.removeprefix("models/"))
 
