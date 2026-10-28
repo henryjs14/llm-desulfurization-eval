@@ -1,13 +1,16 @@
 """Grade saved answers against the rubrics and summarize the results.
 
 Usage (from the repository root):
-    python harness/grade.py results/2026-10-23
+    python harness/grade.py results/run1                         # default grader
+    python harness/grade.py results/run1 --grader gpt-6.1-sol    # another grader
 
-Reads responses.jsonl in the given folder, asks the grader model (set in
+Reads responses.jsonl in the given folder, asks the grader model (listed in
 config.py) to grade each answer as Full, Partial, or Incorrect, and writes:
-    grades.jsonl   one line per graded answer, with the grader's justification
-    summary.md     grade counts by model and tier, and a per-question table
+    grades_<grader>.jsonl   one line per graded answer, with the justification
+    summary_<grader>.md     grade counts by model and tier, and a per-question table
+Each grader writes its own files, so grades from different graders can be compared.
 Answers that were already graded are skipped, so the script can be re-run safely.
+Answers to questions no longer in the question bank are skipped.
 """
 
 import argparse
@@ -19,7 +22,7 @@ from collections import Counter, defaultdict
 from dotenv import load_dotenv
 
 from clients import ask
-from config import GRADER, QUESTION_BANK
+from config import DEFAULT_GRADER, GRADERS, QUESTION_BANK
 from questions import load_questions, load_scoring_definitions
 
 GRADES = ("Full", "Partial", "Incorrect")
@@ -67,7 +70,7 @@ def read_jsonl(path):
         return [json.loads(line) for line in f if line.strip()]
 
 
-def write_summary(grades, path):
+def write_summary(grades, grader_label, path):
     """Write grade counts by model and tier, plus a per-question table."""
     providers = sorted({g["label"] for g in grades})
     tiers = sorted({g["tier"] for g in grades})
@@ -79,7 +82,8 @@ def write_summary(grades, path):
         by_question[g["question_id"]][g["label"]] = g["grade"]
 
     lines = ["# Results summary", "",
-             f"Grader: {GRADER[1]}. Counts are Full / Partial / Incorrect.", "",
+             f"Grader: {grader_label}. {len(grades)} answers graded. "
+             "Counts are Full / Partial / Incorrect.", "",
              "| Tier | " + " | ".join(providers) + " |",
              "|---|" + "---|" * len(providers)]
     for tier in tiers + ["Total"]:
@@ -102,7 +106,9 @@ def write_summary(grades, path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("run_dir", help="results folder, e.g. results/2026-10-23")
+    parser.add_argument("run_dir", help="results folder, e.g. results/run1")
+    parser.add_argument("--grader", choices=list(GRADERS), default=DEFAULT_GRADER,
+                        help=f"grader model label (default: {DEFAULT_GRADER})")
     args = parser.parse_args()
 
     load_dotenv()
@@ -110,15 +116,20 @@ def main():
     scoring = load_scoring_definitions(QUESTION_BANK)
 
     responses = read_jsonl(os.path.join(args.run_dir, "responses.jsonl"))
-    grades_path = os.path.join(args.run_dir, "grades.jsonl")
+    grades_path = os.path.join(args.run_dir, f"grades_{args.grader}.jsonl")
+    summary_path = os.path.join(args.run_dir, f"summary_{args.grader}.md")
     grades = read_jsonl(grades_path)
     done = {(g["label"], g["question_id"]) for g in grades}
 
-    grader_provider, grader_model = GRADER
+    grader_provider, grader_model = GRADERS[args.grader]
+    retired = sorted({r["question_id"] for r in responses} - set(questions),
+                     key=lambda q: int(q[1:]))
+    if retired:
+        print(f"Skipping questions not in the question bank: {', '.join(retired)}")
     with open(grades_path, "a", encoding="utf-8") as out:
         for r in responses:
             key = (r["label"], r["question_id"])
-            if key in done:
+            if key in done or r["question_id"] not in questions:
                 continue
             q = questions[r["question_id"]]
             prompt = GRADER_PROMPT.format(scoring=scoring, question=q["prompt"],
@@ -139,14 +150,15 @@ def main():
             out.flush()
             grades.append(record)
 
-    write_summary(grades, os.path.join(args.run_dir, "summary.md"))
-    print(f"\nWrote {grades_path} and summary.md")
+    grades = [g for g in grades if g["question_id"] in questions]
+    write_summary(grades, args.grader, summary_path)
+    print(f"\nWrote {grades_path} and {summary_path}")
     truncated = [g for g in grades if g.get("truncated")]
     if truncated:
         print(f"Warning: {len(truncated)} answers were cut off at the token limit.")
     unparsed = [g for g in grades if g["grade"] == "Unparsed"]
     if unparsed:
-        print(f"Warning: {len(unparsed)} grades could not be parsed; check grades.jsonl.")
+        print(f"Warning: {len(unparsed)} grades could not be parsed; check {grades_path}.")
 
 
 if __name__ == "__main__":

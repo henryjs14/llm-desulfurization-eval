@@ -15,10 +15,15 @@ MODELS = [
     ("claude-fable-5-1", "anthropic", "claude-fable-5-1"),
 ]
 
-# Model used to grade answers against the rubrics.
-# Note: a grader may favor answers from its own provider. Grades are validated
-# against expert grading of a sample before results are reported.
-GRADER = ("anthropic", "claude-opus-5-5")
+# Models available to grade answers against the rubrics: label -> (provider, model ID).
+# A grader may favor answers from its own provider, so answers are graded by
+# graders from two providers and the grades compared (compare_grades.py), and a
+# sample is checked against expert grading before results are reported.
+GRADERS = {
+    "claude-opus-5-5": ("anthropic", "claude-opus-5-5"),
+    "gpt-6.1-sol": ("openai", "gpt-6.1-sol"),
+}
+DEFAULT_GRADER = "claude-opus-5-5"
 
 # Instruction added to the end of every question, identical for all models.
 # It limits the visible answer so that verbose models are not cut off, and
