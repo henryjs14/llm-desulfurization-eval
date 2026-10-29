@@ -8,12 +8,12 @@ LLMs are increasingly used as research assistants for literature review, hypothe
 
 ## Contents
 
-- `question_bank.md`: 25 benchmark questions in four tiers of increasing difficulty, each with a scoring rubric and source.
+- `question_bank.md`: 24 benchmark questions in four tiers of increasing difficulty, each with a scoring rubric and source, plus one retired question.
 - `pilot_results.md`: results of a hand-run pilot on two chat models, used to check question wording, rubrics, and difficulty.
 
 ## Status
 
-- **Question bank:** complete (25 questions), reviewed by a domain expert.
+- **Question bank:** complete (24 questions, one retired after the first run), reviewed by a domain expert.
 - **Pilot:** complete. Both models tested (ChatGPT and Gemini) answered most fundamentals questions correctly and performed worst on Tiers 3 and 4. They failed in different ways: one tended to list several explanations without committing, the other committed confidently to plausible but incorrect conclusions. See `pilot_results.md`.
 - **Automated evaluation harness:** in progress. It will submit each question independently to several models through their APIs, record model versions, and grade answers against the rubrics.
 

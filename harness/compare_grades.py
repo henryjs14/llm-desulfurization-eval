@@ -18,6 +18,9 @@ import json
 import os
 from collections import Counter
 
+from config import QUESTION_BANK
+from questions import load_questions
+
 GRADES = ("Full", "Partial", "Incorrect")
 SCORE = {"Full": 1.0, "Partial": 0.5, "Incorrect": 0.0}
 
@@ -48,7 +51,9 @@ def main():
 
     g1, g2 = load(args.run_dir, args.grader1), load(args.run_dir, args.grader2)
     keys = sorted(set(g1) & set(g2), key=lambda k: (k[0], int(k[1][1:])))
-    keys = [k for k in keys if g1[k]["grade"] in GRADES and g2[k]["grade"] in GRADES]
+    current = {q["id"] for q in load_questions(QUESTION_BANK)}  # excludes retired questions
+    keys = [k for k in keys if k[1] in current
+            and g1[k]["grade"] in GRADES and g2[k]["grade"] in GRADES]
     if not keys:
         raise SystemExit("No answers graded by both graders.")
     pairs = [(g1[k]["grade"], g2[k]["grade"]) for k in keys]

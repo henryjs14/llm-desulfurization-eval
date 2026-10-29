@@ -38,9 +38,9 @@ Points introduced with "Strong answers" in a rubric are not required for full cr
 |---|---|---|
 | 1 | Mechanism and materials fundamentals | 8 |
 | 2 | Comparative reasoning | 6 |
-| 3 | Counterfactual and edge cases | 6 |
+| 3 | Counterfactual and edge cases | 5 |
 | 4 | Diagnostic and anomaly explanation | 5 |
-| | **Total** | **25** |
+| | **Total** | **24** |
 
 ---
 
@@ -111,7 +111,7 @@ Tier 2 questions require the model to predict relative performance between sorbe
 
 **Q12.** CuY and CeY are tested for BT removal from *n*-octane under identical fixed-bed conditions (feed concentration, flow rate, and bed dimensions). The breakthrough capacities are 65 mL/g for CuY and 35 mL/g for CeY. After breakthrough, the effluent sulfur concentration rises much more steeply for CeY than for CuY. What does the difference in breakthrough curve shape indicate?
 
-- **Rubric:** The slope reflects how quickly sulfur is taken up as the feed passes through the bed. Because both sorbents share the same Y framework, differences in diffusion through the pore structure are unlikely to explain the difference, which therefore lies with the metal sites. Possible explanations include faster adsorption kinetics at the accessible Ce sites, and a narrower distribution of site strengths in CeY (few, relatively uniform accessible sites) than in CuY, where Cu<sup>+</sup> at different positions and some Cu<sup>0</sup> give a range of binding strengths that broadens the breakthrough curve. Differences in how the cations themselves obstruct diffusion may contribute but are likely minor. Full credit requires attributing the difference to the metal sites. Answers that infer capacity from the slope of the curve, or that attribute the difference solely to framework diffusion, are marked down.
+- **Rubric:** The slope reflects how quickly sulfur is taken up as the feed passes through the bed. Because both sorbents share the same Y framework, differences in diffusion through the pore structure are unlikely to explain the difference, which therefore lies with the metal sites. Possible explanations include faster adsorption kinetics at the accessible Ce sites, and a narrower distribution of site strengths in CeY (few, relatively uniform accessible sites) than in CuY, where Cu<sup>+</sup> at different positions and some Cu<sup>0</sup> give a range of binding strengths that broadens the breakthrough curve. Differences in how the cations themselves obstruct diffusion may contribute but are likely minor. Full credit requires attributing the difference to the metal sites. Answers that conclude a steeper curve by itself indicates lower capacity, or that attribute the difference solely to framework diffusion, are marked down. Noting that a more gradual curve leaves more unused capacity beyond the breakthrough point is correct.
 - **Source:** [4] (Discussion); [2]
 
 **Q13.** DFT adsorption enthalpies on CuY are: TP −141, BT −149, DBT −143, 4,6-DMDBT −142, benzene −125, and naphthalene −143 kJ/mol. Based on these values, predict whether competitive adsorption of aromatics is a more serious limitation for desulfurization of gasoline (principal sulfur compounds TP and BT; principal competing aromatic benzene) or diesel (principal sulfur compounds DBT and 4,6-DMDBT; principal competing aromatic naphthalene).
@@ -142,28 +142,12 @@ Tier 3 questions present situations that invite a plausible but incorrect conclu
 
 **Q17.** A food waste feedstock was washed five times with deionized water to remove soluble minerals, then pyrolyzed and steam-activated to approximately 25 wt% mass yield. Predict whether inorganic elements (e.g., Na, Ca, K, and P) will be present in the final carbon at levels high enough to influence sulfur adsorption, and explain.
 
-- **Rubric:** Yes, they are likely to be present at significant levels. (1) Washing removes only water-soluble salts; insoluble mineral phases and elements bound within the biomass remain. (2) Pyrolysis and activation remove most of the carbon while largely retaining inorganic elements, so their concentration in the final carbon increases several-fold. (In this case, the washed carbon contained 2–3 wt% each of Na, Ca, K, and P.) Answers predicting negligible inorganic content because of washing are marked as incorrect.
+- **Rubric:** Yes, they are likely to be present at significant levels. (1) Washing removes only water-soluble salts; insoluble mineral phases and elements bound within the biomass remain. (2) Pyrolysis and activation remove most of the carbon while largely retaining inorganic elements, so their concentration in the final carbon increases several-fold. Answers predicting negligible inorganic content because of washing are marked as incorrect.
 - **Source:** [3] (§2, Table 2)
-
-**Q18.** Two activated carbons were prepared from different biomass feedstocks under identical conditions. They have similar BET surface areas and micropore volumes (0.25 and 0.26 cm<sup>3</sup>/g). Their other properties are given below.
-
-| | Carbon X | Carbon Y |
-|---|---|---|
-| Mesopore volume (cm<sup>3</sup>/g) | 0.50 | 0.30 |
-| K (wt%) | 2.5 | 3.5 |
-| Na (wt%) | 2.6 | 0.2 |
-| Ca (wt%) | 2.1 | 1.0 |
-| P (wt%) | 3.0 | 1.0 |
-| DBT capacity (mg S/g) | 6.3 | 4.7 |
-
-Which property best explains the higher capacity of carbon X?
-
-- **Rubric:** No single property can be identified from these data. K can be ruled out, because carbon Y contains more K but has the lower capacity. Na, Ca, P, and mesopore volume are all higher in X, and with two samples their effects cannot be separated; a controlled experiment, such as varying one element at a time on the same carbon, would be required. Micropore volume does not explain the difference, since it is nearly the same in both carbons, but this does not make it unimportant: it remains a primary determinant of capacity, with other properties modifying capacity in addition to it. Answers that confidently attribute the difference to a single property are marked down.
-- **Source:** [3] (Tables 1–2)
 
 **Q19.** Rietveld refinement of XRD data for CuCeY zeolite assigned Ce cations primarily to sodalite cage sites (SI′ and SII′), which DBT cannot enter, and Cu cations primarily to site SII, which is accessible from the supercage. Based on this assignment, can Ce cations contribute directly to DBT adsorption?
 
-- **Rubric:** A direct contribution cannot be excluded. Rietveld refinement models electron density at each cation site and has limited ability to distinguish different cations at partially occupied sites. A site assigned to Cu may also contain Ce, so some Ce may occupy accessible sites and bind DBT directly. The refinement indicates a site preference, not strict exclusion. Answers concluding that Ce cannot contribute because of the site assignment are marked as incorrect.
+- **Rubric:** A direct contribution cannot be excluded. Rietveld refinement models electron density at each cation site and has limited ability to distinguish different cations at partially occupied sites. A site assigned to Cu may also contain Ce, so some Ce may occupy accessible sites and bind DBT directly. The refinement indicates a site preference, not strict exclusion. Answers concluding that Ce cannot contribute because of the site assignment are marked as incorrect. Answers that conclude Ce is mostly inaccessible but allow that some Ce may bind DBT directly receive full credit.
 - **Source:** [6]; [2]
 
 **Q20.** π–π stacking between aromatic rings and the graphitic planes of activated carbon has been proposed as a mechanism for DBT adsorption. Four activated carbons with similar BET surface areas (850–930 m<sup>2</sup>/g) have the properties below. Rank them by expected DBT capacity and justify the ranking.
@@ -225,6 +209,28 @@ Explain why introducing mesopores affects the two compounds so differently.
 
 - **Rubric:** 4,6-DMDBT is bulkier than DBT because of its methyl groups. In the purely microporous parent Y, it is almost entirely excluded from internal sites and breaks through early, whereas DBT, although also diffusion-limited, reaches a larger fraction of the sites. Mesopores remove most of this restriction, so the gain is far larger for the compound that was most restricted. The large gain shows that the low breakthrough point of 4,6-DMDBT on the parent Y reflected restricted access rather than weak binding. Strong answers note that the methyl groups restrict access through the micropores but do not prevent adsorption once the molecule reaches the sites. Answers attributing the difference to a change in adsorption mechanism are marked down.
 - **Source:** [5] (Table 4)
+
+## Retired questions
+
+These questions are excluded from all scores. Answers and grades from earlier runs are retained in the results.
+
+Q18 was retired after run1. The question asks which property best explains the difference in capacity, but with two samples and several properties varying together, the data cannot identify one. The question therefore tested whether a model declines to answer rather than its reasoning about adsorption.
+
+**Q18 (retired).** Two activated carbons were prepared from different biomass feedstocks under identical conditions. They have similar BET surface areas and micropore volumes (0.25 and 0.26 cm<sup>3</sup>/g). Their other properties are given below.
+
+| | Carbon X | Carbon Y |
+|---|---|---|
+| Mesopore volume (cm<sup>3</sup>/g) | 0.50 | 0.30 |
+| K (wt%) | 2.5 | 3.5 |
+| Na (wt%) | 2.6 | 0.2 |
+| Ca (wt%) | 2.1 | 1.0 |
+| P (wt%) | 3.0 | 1.0 |
+| DBT capacity (mg S/g) | 6.3 | 4.7 |
+
+Which property best explains the higher capacity of carbon X?
+
+- **Rubric:** No single property can be identified from these data. K can be ruled out, because carbon Y contains more K but has the lower capacity. Na, Ca, P, and mesopore volume are all higher in X, and with two samples their effects cannot be separated; a controlled experiment, such as varying one element at a time on the same carbon, would be required. Micropore volume does not explain the difference, since it is nearly the same in both carbons, but this does not make it unimportant: it remains a primary determinant of capacity, with other properties modifying capacity in addition to it. Answers that confidently attribute the difference to a single property are marked down.
+- **Source:** [3] (Tables 1–2)
 
 ---
 

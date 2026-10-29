@@ -1,9 +1,9 @@
 # Grader comparison: claude-opus-5-5 vs. gpt-6.1-sol
 
-Answers graded by both: 125
+Answers graded by both: 120
 
-- Same grade: 103 (82%)
-- Cohen's kappa: 0.70
+- Same grade: 96 (80%)
+- Cohen's kappa: 0.65
 - Full vs. Incorrect (largest disagreements): 0
 
 ## Grade pairs
@@ -12,9 +12,9 @@ Rows: claude-opus-5-5. Columns: gpt-6.1-sol.
 
 | | Full | Partial | Incorrect |
 |---|---|---|---|
-| Full | 40 | 16 | 0 |
-| Partial | 2 | 52 | 3 |
-| Incorrect | 0 | 1 | 11 |
+| Full | 43 | 17 | 0 |
+| Partial | 3 | 47 | 3 |
+| Incorrect | 0 | 1 | 6 |
 
 ## Average score by model
 
@@ -22,11 +22,11 @@ Full = 1, Partial = 0.5, Incorrect = 0.
 
 | Model | claude-opus-5-5 | gpt-6.1-sol | Difference |
 |---|---|---|---|
-| claude-fable-5-1 | 0.70 | 0.60 | +0.10 |
-| gemini-4-argon | 0.72 | 0.60 | +0.12 |
-| gpt-6-astra | 0.72 | 0.70 | +0.02 |
-| gpt-6-luna | 0.60 | 0.54 | +0.06 |
-| gpt-6.1-sol | 0.64 | 0.62 | +0.02 |
+| claude-fable-5-1 | 0.77 | 0.65 | +0.12 |
+| gemini-4-argon | 0.79 | 0.65 | +0.15 |
+| gpt-6-astra | 0.73 | 0.73 | +0.00 |
+| gpt-6-luna | 0.62 | 0.58 | +0.04 |
+| gpt-6.1-sol | 0.69 | 0.67 | +0.02 |
 
 ## Disagreements
 
@@ -59,12 +59,6 @@ Full = 1, Partial = 0.5, Incorrect = 0.
 **claude-opus-5-5:** For (a), the answer concludes that the elements are present as a separate crystalline inorganic phase, most likely phosphates, dispersed as particles on the carbon. For (b), it identifies these particles as additional chemisorption/reactive sites for sulfur species, and it also notes the added non-porous mass that lowers capacity per gram. It does not explicitly flag these roles as unproven hypotheses, but that point is not required for full credit.
 
 **gpt-6.1-sol:** The answer correctly identifies crystalline inorganic particles, plausibly phosphates, and proposes additional chemisorption sites for sulfur compounds. However, it incorrectly treats the ICP-OES concentrations as ruling out atomically dispersed species and asserts crystallite sizes from XRD without quantitative peak-width data; the evidence establishes that at least some, not necessarily all, of these elements occur in crystalline particles.
-
-### Q17, claude-fable-5-1: Partial vs. Full
-
-**claude-opus-5-5:** The answer predicts 'yes' and covers both required points: washing removes only soluble salts while insoluble or bound minerals remain, and the ~25% yield concentrates the retained inorganics roughly fourfold. However, it contains a supporting factual error. Its conclusion that washing 'removes mostly Na' contradicts the case result, where the washed carbon still held 2–3 wt% Na alongside Ca, K and P.
-
-**gpt-6.1-sol:** The answer clearly predicts significant residual inorganic content and explains both required mechanisms: washing removes only water-soluble minerals, while insoluble or biomass-bound elements remain, and pyrolysis/activation concentrates retained inorganics several-fold at a 25 wt% yield. It also explicitly connects those residual elements to sulfur adsorption.
 
 ### Q22, claude-fable-5-1: Full vs. Partial
 
@@ -102,6 +96,12 @@ Full = 1, Partial = 0.5, Incorrect = 0.
 
 **gpt-6.1-sol:** The answer identifies greater physical adsorption capacity, appropriately sized micropores, possible sulfur binding at inorganic species, and diffusion constraints in the zeolite. However, it does not clearly identify the limited number of accessible exchanged-metal sites as a constraint on zeolite capacity, a required rubric point.
 
+### Q19, gemini-4-argon: Full vs. Partial
+
+**claude-opus-5-5:** The answer concludes that most Ce is in inaccessible sodalite sites but that some Ce may still sit at accessible supercage sites (SII/SIII) and bind DBT directly. It treats the assignment as a site preference rather than strict exclusion, which matches the rubric's explicit full-credit criterion. It does not discuss Rietveld's limited ability to tell Cu from Ce at shared sites, and its migration argument is extra speculation, but its conclusion is correct.
+
+**gpt-6.1-sol:** The answer correctly allows direct DBT binding by a minority of Ce cations at accessible sites. However, it omits the required explanation that Rietveld refinement models electron density and cannot reliably distinguish different cations at partially occupied sites, so sites assigned to Cu may also contain Ce; adsorbate-induced migration does not substitute for this limitation.
+
 ### Q21, gemini-4-argon: Full vs. Partial
 
 **claude-opus-5-5:** The answer concludes that Cu⁰ clustering reduces the number of accessible active sites. It attributes this to lost isolated Cu⁺ sites and reduced dispersion, and notes that Cu⁰ lacks the empty s-orbital acceptor configuration needed for π-complexation. It also covers partial pore blockage. The extra discussion of reactive sulfidation is supplementary and does not undermine its main conclusion that adsorption capacity falls.
@@ -113,6 +113,12 @@ Full = 1, Partial = 0.5, Incorrect = 0.
 **claude-opus-5-5:** For (a), the answer says exchange and calcination leave Cu²⁺, that H₂ reduction gives Cu⁺, and that Cu⁺ (3d¹⁰) binds thiophene by σ/π donation plus d→π* back-donation. It does not spell out the 3d⁹ configuration or vacant 4s orbital, but its contrast with Cu²⁺ covers the required point. For (b), it correctly cites Cu⁺ disproportionation in water and the poor solubility of Cu(I) salts.
 
 **gpt-6.1-sol:** The answer correctly explains reduction to Cu⁺, its filled 3d¹⁰ shell and back-donation, and both aqueous Cu⁺ disproportionation and poor Cu(I) salt solubility. However, it omits the required explanation that Cu²⁺ is 3d⁹ and a poor back-donor because of its higher charge and partially filled d shell, and it does not identify the vacant Cu⁺ 4s orbital responsible for σ-acceptance.
+
+### Q19, gpt-6-astra: Partial vs. Full
+
+**claude-opus-5-5:** The answer does not exclude a direct Ce contribution: it notes that 'primarily' leaves room for a minority of Ce at accessible sites that could bind DBT. However, it never explains the key methodological limitation, namely that Rietveld refinement models electron density and cannot reliably distinguish Ce from Cu at partially occupied sites, so the SII site assigned to Cu may also contain Ce. It also frames the conclusion mainly as Ce being an indirect promoter.
+
+**gpt-6.1-sol:** The answer concludes that Ce is predominantly inaccessible but explicitly allows that a minority may occupy accessible sites and bind DBT directly. It therefore treats the refinement as indicating a site preference rather than strictly excluding direct Ce–DBT adsorption, satisfying the rubric’s full-credit criterion.
 
 ### Q5, gpt-6-luna: Full vs. Partial
 
@@ -132,6 +138,12 @@ Full = 1, Partial = 0.5, Incorrect = 0.
 
 **gpt-6.1-sol:** The answer identifies complementary Cu/Ce sulfur binding and possible redox chemistry as its main explanation, rather than the rubric-supported cation distribution. Its generic discussion of dispersion and accessibility does not explain that Ce preferentially occupies interior sites, leaving more accessible Cu⁺ sites while retaining the same π-complexation mechanism.
 
+### Q19, gpt-6-luna: Incorrect vs. Partial
+
+**claude-opus-5-5:** The answer's main conclusion is that Ce is not expected to contribute directly, which takes the site assignment at face value and is the conclusion the question invites. It never notes that Rietveld refinement has limited ability to tell Cu from Ce at partially occupied sites, so Ce could share the SII sites assigned to Cu. Its hedge about Ce at external surfaces or defects does not address this limitation and does not overturn the main conclusion.
+
+**gpt-6.1-sol:** The answer allows that Ce at accessible sites could contribute directly, so it does not categorically exclude direct adsorption. However, it omits the key limitation of Rietveld refinement: sites assigned to Cu may also contain Ce, meaning the assignment indicates site preference rather than strict exclusion.
+
 ### Q3, gpt-6.1-sol: Full vs. Partial
 
 **claude-opus-5-5:** The answer explains that substituting Al³⁺ for Si⁴⁺ creates a net negative framework charge, balanced by extra-framework cations that can be exchanged for others from solution. Its Na⁺/Ca²⁺ example shows metal cations being introduced this way, though it does not explicitly call them adsorption sites. It also gives the stronger point that a lower Si/Al ratio raises the maximum exchange capacity.
@@ -150,11 +162,11 @@ Full = 1, Partial = 0.5, Incorrect = 0.
 
 **gpt-6.1-sol:** The answer explains greater accessible pore space and physisorption, as well as diffusion and accessibility limitations on zeolite metal sites. However, it does not identify Na-, K-, and Ca-containing inorganic species as possible additional sulfur-binding sites, instead discussing indirect effects and emphasizing that sulfur-specific binding is unproven.
 
-### Q19, gpt-6.1-sol: Incorrect vs. Partial
+### Q19, gpt-6.1-sol: Partial vs. Full
 
-**claude-opus-5-5:** The answer's headline ('Not directly') and final conclusion ('direct participation... is unsupported') adopt the invited conclusion that the site assignment rules out direct Ce adsorption. It notes in passing that a minority of Ce might be accessible but dismisses this. It also misses the key rubric point that Rietveld refinement cannot reliably distinguish Ce from Cu at partially occupied sites, so the Cu-assigned SII site may itself hold Ce.
+**claude-opus-5-5:** The answer allows that a minority of Ce at supercage-accessible sites could bind DBT directly, which fits the rubric's direction. It misses the key reason: Rietveld refinement cannot reliably tell cations apart at partially occupied sites, so the Cu-assigned SII site may itself contain Ce. Its headline ('Not directly') and conclusion that direct Ce participation is 'unsupported' also lean toward exclusion rather than treating the assignment as only a site preference.
 
-**gpt-6.1-sol:** The answer acknowledges that some Ce could occupy accessible sites and interact directly with DBT, so it does not strictly exclude direct adsorption. However, it omits the required explanation that Rietveld refinement has limited ability to distinguish cation species at partially occupied sites, meaning sites assigned to Cu may also contain Ce.
+**gpt-6.1-sol:** The answer concludes that Ce is mostly inaccessible but explicitly allows that a minority of Ce at accessible sites could bind DBT directly. It treats the refinement as indicating predominant locations rather than strict exclusion, satisfying the rubric’s stated full-credit criterion.
 
 ### Q20, gpt-6.1-sol: Partial vs. Full
 
