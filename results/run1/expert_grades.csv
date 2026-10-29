@@ -1,0 +1,33 @@
+question_id,model,expert_grade,selected_as
+Q2,claude-fable-5-1,Full,disagreement
+Q2,gemini-4-argon,Full,disagreement
+Q3,claude-fable-5-1,Full,disagreement
+Q3,gpt-6.1-sol,Full,disagreement
+Q4,gpt-6-astra,Full,disagreement
+Q4,gpt-6-luna,Partial,random agreement
+Q5,claude-fable-5-1,Full,disagreement
+Q5,gemini-4-argon,Full,random agreement
+Q5,gpt-6-luna,Full,disagreement
+Q6,claude-fable-5-1,Full,disagreement
+Q6,gemini-4-argon,Full,disagreement
+Q6,gpt-6-luna,Full,disagreement
+Q8,claude-fable-5-1,Full,disagreement
+Q8,gemini-4-argon,Full,disagreement
+Q9,claude-fable-5-1,Incorrect,random agreement
+Q9,gpt-6.1-sol,Full,disagreement
+Q10,gpt-6-luna,Full,disagreement
+Q11,gemini-4-argon,Full,disagreement
+Q12,claude-fable-5-1,Full,random agreement
+Q14,gemini-4-argon,Full,disagreement
+Q14,gpt-6.1-sol,Full,disagreement
+Q17,claude-fable-5-1,Full,disagreement
+Q17,gpt-6-astra,Full,random agreement
+Q17,gpt-6-luna,Partial,random agreement
+Q19,gpt-6.1-sol,Full,disagreement
+Q20,claude-fable-5-1,Full,random agreement
+Q20,gpt-6.1-sol,Not graded,disagreement
+Q21,gemini-4-argon,Full,disagreement
+Q21,gpt-6-astra,Full,random agreement
+Q22,claude-fable-5-1,Not graded,disagreement
+Q22,gemini-4-argon,Partial,random agreement
+Q22,gpt-6.1-sol,Full,random agreement
